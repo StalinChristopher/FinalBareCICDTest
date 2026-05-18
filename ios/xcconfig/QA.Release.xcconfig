@@ -1,0 +1,7 @@
+// QA flavor — Release build type
+#include? "../Pods/Target Support Files/Pods-FinalBareCICDTest/Pods-FinalBareCICDTest.release-qa.xcconfig"
+
+ENVFILE=../.env.qa
+
+PRODUCT_NAME = FinalBareCICDTest QA
+PRODUCT_BUNDLE_IDENTIFIER = com.codeandtheory.templatepipelinetest.qa

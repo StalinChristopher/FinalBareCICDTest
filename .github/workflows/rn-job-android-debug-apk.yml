@@ -1,0 +1,39 @@
+name: RN — Android debug APK
+
+on:
+  workflow_call:
+    inputs:
+      artifact_name:
+        type: string
+        default: android-debug-apk
+
+jobs:
+  debug-apk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+      - run: bash .github/scripts/install_js_deps.sh auto
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: android-actions/setup-android@v3
+      - run: echo "sdk.dir=$ANDROID_HOME" > android/local.properties
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: gradle-${{ runner.os }}-${{ hashFiles('android/**/*.gradle*', 'android/gradle/wrapper/gradle-wrapper.properties') }}
+      - name: Assemble debug
+        working-directory: android
+        run: ./gradlew assembleDevDebug --no-daemon
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ inputs.artifact_name }}
+          path: android/app/build/outputs/apk/dev/debug/*.apk
+          if-no-files-found: error

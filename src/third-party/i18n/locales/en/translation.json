@@ -1,0 +1,117 @@
+{
+  "tabs": {
+    "home": "Home",
+    "explore": "Explore",
+    "profile": "Profile",
+    "posts": "Posts"
+  },
+  "drawer": {
+    "tabRootTitle": "Main",
+    "tabRootLabel": "Home (tabs)",
+    "aboutTitle": "About",
+    "settingsTitle": "Settings"
+  },
+  "rootModals": {
+    "exampleTitle": "Presentation modal",
+    "transparentTitle": "Transparent modal",
+    "fullScreenTitle": "Full screen modal"
+  },
+  "stacks": {
+    "homeDetailTitle": "Detail",
+    "exploreDetailTitle": "Section",
+    "settingsTitle": "Settings"
+  },
+  "aboutDrawer": {
+    "title": "Drawer screen",
+    "caption": "Opened from drawer menu (not a tab).",
+    "goTabs": "Go to TabRoot (tabs)",
+    "closeDrawer": "closeDrawer()"
+  },
+  "home": {
+    "title": "Home stack",
+    "caption": "Push, params, pop, replace, jump to tab, root modals, drawer",
+    "navigateDetail": "Navigate with params -> HomeDetail",
+    "pushDuplicate": "Push duplicate HomeMain (stack depth)",
+    "jumpExplore": "Jump to Explore tab (composite navigate)",
+    "openSettings": "Open Profile -> Settings (nested target)",
+    "openDrawer": "Open drawer",
+    "rootModal": "Root modal (navigationRef)",
+    "transparentModal": "Transparent root modal",
+    "fullScreenModal": "Full screen modal (iOS-style)",
+    "demoItemTitle": "Demo item",
+    "fromHomeMessage": "From Home"
+  },
+  "homeDetail": {
+    "title": "HomeDetail",
+    "itemId": "itemId: {{id}}",
+    "titleMeta": "title: {{title}}",
+    "goBack": "goBack()",
+    "popToTop": "popToTop()",
+    "replaceMain": "replace -> HomeMain",
+    "setParams": "setParams (update title)",
+    "updatedTitle": "Updated title"
+  },
+  "explore": {
+    "title": "Explore stack",
+    "navigateDetail": "Navigate -> ExploreDetail (params)",
+    "switchHome": "Switch to Home tab"
+  },
+  "exploreDetail": {
+    "title": "Section: {{section}}",
+    "pop": "pop()"
+  },
+  "profile": {
+    "title": "Profile stack",
+    "navigateSettings": "Navigate -> Settings",
+    "reset": "reset() stack to ProfileMain"
+  },
+  "settings": {
+    "title": "Settings",
+    "openedFrom": "Opened from: {{from}}",
+    "goBack": "goBack()",
+    "selectYourLanguage": "Select your language",
+    "languageSheetTitle": "Select your language",
+    "languageEnglish": "English",
+    "languageSpanish": "Spanish",
+    "useDeviceLanguage": "Use device language",
+    "language": "Language",
+    "theme": "Theme",
+    "themeSheetTitle": "Select theme",
+    "themeSystem": "System",
+    "themeLight": "Light",
+    "themeDark": "Dark"
+  },
+  "posts": {
+    "title": "Posts",
+    "loading": "Loading posts…",
+    "empty": "No posts."
+  },
+  "exampleModal": {
+    "title": "Presentation modal",
+    "caption": "options.presentation = 'modal'",
+    "dismiss": "Dismiss (goBack)"
+  },
+  "transparentModal": {
+    "title": "Transparent modal",
+    "close": "Close"
+  },
+  "fullScreenModal": {
+    "title": "Full screen modal",
+    "caption": "presentation: fullScreenModal (common on iOS)",
+    "dismiss": "Dismiss"
+  },
+  "socialLogin": {
+    "signInErrorTitle": "Sign-in Error",
+    "errorTitle": "Error",
+    "signOutFailed": "Sign-out failed",
+    "signInFailed": "{{provider}} sign-in failed",
+    "signedInFallback": "Signed In",
+    "viaProvider": "via {{provider}}",
+    "signOut": "Sign Out",
+    "title": "Sign In",
+    "subtitle": "Choose a provider to continue",
+    "continueGoogle": "Continue with Google",
+    "continueApple": "Continue with Apple",
+    "continueFacebook": "Continue with Facebook"
+  }
+}

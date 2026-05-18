@@ -1,0 +1,117 @@
+{
+  "tabs": {
+    "home": "Inicio",
+    "explore": "Explorar",
+    "profile": "Perfil",
+    "posts": "Publicaciones"
+  },
+  "drawer": {
+    "tabRootTitle": "Principal",
+    "tabRootLabel": "Inicio (pestañas)",
+    "aboutTitle": "Acerca de",
+    "settingsTitle": "Ajustes"
+  },
+  "rootModals": {
+    "exampleTitle": "Modal de presentación",
+    "transparentTitle": "Modal transparente",
+    "fullScreenTitle": "Modal a pantalla completa"
+  },
+  "stacks": {
+    "homeDetailTitle": "Detalle",
+    "exploreDetailTitle": "Sección",
+    "settingsTitle": "Ajustes"
+  },
+  "aboutDrawer": {
+    "title": "Pantalla del menú lateral",
+    "caption": "Abierta desde el menú lateral (no es una pestaña).",
+    "goTabs": "Ir a pestañas (TabRoot)",
+    "closeDrawer": "closeDrawer()"
+  },
+  "home": {
+    "title": "Pila Inicio",
+    "caption": "Push, parámetros, pop, replace, salto de pestaña, modales raíz, menú lateral",
+    "navigateDetail": "Navegar con parámetros -> Detalle de inicio",
+    "pushDuplicate": "Push duplicado HomeMain (profundidad de pila)",
+    "jumpExplore": "Ir a pestaña Explorar (navegación compuesta)",
+    "openSettings": "Abrir Perfil -> Ajustes (objetivo anidado)",
+    "openDrawer": "Abrir menú lateral",
+    "rootModal": "Modal raíz (navigationRef)",
+    "transparentModal": "Modal raíz transparente",
+    "fullScreenModal": "Modal a pantalla completa (estilo iOS)",
+    "demoItemTitle": "Elemento demo",
+    "fromHomeMessage": "Desde Inicio"
+  },
+  "homeDetail": {
+    "title": "Detalle de inicio",
+    "itemId": "itemId: {{id}}",
+    "titleMeta": "título: {{title}}",
+    "goBack": "goBack()",
+    "popToTop": "popToTop()",
+    "replaceMain": "replace -> HomeMain",
+    "setParams": "setParams (actualizar título)",
+    "updatedTitle": "Título actualizado"
+  },
+  "explore": {
+    "title": "Pila Explorar",
+    "navigateDetail": "Navegar -> Detalle de explorar (params)",
+    "switchHome": "Cambiar a pestaña Inicio"
+  },
+  "exploreDetail": {
+    "title": "Sección: {{section}}",
+    "pop": "pop()"
+  },
+  "profile": {
+    "title": "Pila Perfil",
+    "navigateSettings": "Navegar -> Ajustes",
+    "reset": "reset() pila a ProfileMain"
+  },
+  "settings": {
+    "title": "Ajustes",
+    "openedFrom": "Abierto desde: {{from}}",
+    "goBack": "goBack()",
+    "selectYourLanguage": "Selecciona tu idioma",
+    "languageSheetTitle": "Selecciona tu idioma",
+    "languageEnglish": "Inglés",
+    "languageSpanish": "Español",
+    "useDeviceLanguage": "Usar idioma del dispositivo",
+    "language": "Idioma",
+    "theme": "Tema",
+    "themeSheetTitle": "Seleccionar tema",
+    "themeSystem": "Sistema",
+    "themeLight": "Tema claro",
+    "themeDark": "Tema oscuro"
+  },
+  "posts": {
+    "title": "Publicaciones",
+    "loading": "Cargando publicaciones…",
+    "empty": "No hay publicaciones."
+  },
+  "exampleModal": {
+    "title": "Modal de presentación",
+    "caption": "options.presentation = 'modal'",
+    "dismiss": "Cerrar (goBack)"
+  },
+  "transparentModal": {
+    "title": "Modal transparente",
+    "close": "Cerrar"
+  },
+  "fullScreenModal": {
+    "title": "Modal a pantalla completa",
+    "caption": "presentation: fullScreenModal (común en iOS)",
+    "dismiss": "Cerrar"
+  },
+  "socialLogin": {
+    "signInErrorTitle": "Error al iniciar sesión",
+    "errorTitle": "Error",
+    "signOutFailed": "No se pudo cerrar sesión",
+    "signInFailed": "Error al iniciar sesión con {{provider}}",
+    "signedInFallback": "Sesión iniciada",
+    "viaProvider": "vía {{provider}}",
+    "signOut": "Cerrar sesión",
+    "title": "Iniciar sesión",
+    "subtitle": "Elige un proveedor para continuar",
+    "continueGoogle": "Continuar con Google",
+    "continueApple": "Continuar con Apple",
+    "continueFacebook": "Continuar con Facebook"
+  }
+}
