@@ -43,10 +43,8 @@ platform :ios do
     if identity.empty? && %w[app-store ad-hoc].include?(export_method)
       identity = "Apple Distribution"
     end
-    if identity && !identity.empty?
-      xcargs["CODE_SIGN_IDENTITY"] = identity
-      xcargs["CODE_SIGN_IDENTITY[sdk=iphoneos*]"] = identity
-    end
+    # Only CODE_SIGN_IDENTITY — bracketed sdk= keys break xcodebuild when gym passes xcargs via shell.
+    xcargs["CODE_SIGN_IDENTITY"] = identity if identity && !identity.empty?
 
     bc = ENV["IOS_BUILD_CONFIGURATION"]
     gym_args = {

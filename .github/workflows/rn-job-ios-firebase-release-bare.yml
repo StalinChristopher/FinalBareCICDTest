@@ -23,7 +23,7 @@ on:
         description: "iOS bundle ID (must match Xcode, signing profile, and Firebase iOS app)"
         type: string
         required: false
-        default: com.codeandtheory.templatepipelinetest
+        default: com.codeandtheory.templatepipelinetest.dist
       ios_scheme:
         description: "Xcode scheme used by Fastlane gym"
         type: string
@@ -147,6 +147,13 @@ jobs:
           UUID=$(/usr/libexec/PlistBuddy -c 'Print UUID' "$RUNNER_TEMP/profile.plist")
           PROFILE_NAME=$(/usr/libexec/PlistBuddy -c 'Print Name' "$RUNNER_TEMP/profile.plist")
           TEAM_ID=$(/usr/libexec/PlistBuddy -c 'Print TeamIdentifier:0' "$RUNNER_TEMP/profile.plist")
+          APP_ID_FULL=$(/usr/libexec/PlistBuddy -c 'Print Entitlements:application-identifier' "$RUNNER_TEMP/profile.plist")
+          PROFILE_BUNDLE="${APP_ID_FULL#${TEAM_ID}.}"
+          EXPECTED_BUNDLE="${APP_IDENTIFIER:-}"
+          if [ -n "$EXPECTED_BUNDLE" ] && [ "$PROFILE_BUNDLE" != "$EXPECTED_BUNDLE" ]; then
+            echo "::error::Provisioning profile App ID \"${PROFILE_BUNDLE}\" does not match APP_IDENTIFIER \"${EXPECTED_BUNDLE}\". Regenerate DIST_PROFILE_BASE64 (or dev profile) for the correct bundle ID in Apple Developer."
+            exit 1
+          fi
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
           cp "$PROFILE_PATH" ~/Library/MobileDevice/Provisioning\ Profiles/"$UUID.mobileprovision"
           echo "IOS_PROVISIONING_PROFILE_NAME<<EOF" >> $GITHUB_ENV

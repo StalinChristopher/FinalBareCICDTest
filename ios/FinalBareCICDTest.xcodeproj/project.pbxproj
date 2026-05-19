@@ -520,7 +520,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.codeandtheory.templatepipelinetest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codeandtheory.templatepipelinetest.dist;
 				PRODUCT_NAME = FinalBareCICDTest;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SWIFT_VERSION = 5.0;
