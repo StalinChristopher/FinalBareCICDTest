@@ -9,7 +9,7 @@ on:
         default: ios/FinalBareCICDTest.xcworkspace
       ios_scheme:
         type: string
-        default: FinalBareCICDTest
+        default: Dev
       simulator_destination:
         type: string
         default: auto

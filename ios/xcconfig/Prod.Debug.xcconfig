@@ -4,4 +4,4 @@
 ENVFILE=../.env.prod
 
 PRODUCT_NAME = FinalBareCICDTest
-PRODUCT_BUNDLE_IDENTIFIER = com.codeandtheory.templatepipelinetest.dist
+PRODUCT_BUNDLE_IDENTIFIER = com.codeandtheory.templatepipelinetest

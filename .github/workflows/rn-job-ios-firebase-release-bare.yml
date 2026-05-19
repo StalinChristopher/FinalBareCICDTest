@@ -23,12 +23,22 @@ on:
         description: "iOS bundle ID (must match Xcode, signing profile, and Firebase iOS app)"
         type: string
         required: false
-        default: com.codeandtheory.templatepipelinetest.dist
+        default: com.codeandtheory.templatepipelinetest
       ios_scheme:
         description: "Xcode scheme used by Fastlane gym"
         type: string
         required: false
         default: Prod
+      ios_build_configuration_dev:
+        description: "Xcode build configuration for dev Firebase builds (CT flavor default Debug-Dev)"
+        type: string
+        required: false
+        default: Debug-Dev
+      ios_build_configuration_dist:
+        description: "Xcode build configuration for dist Firebase builds (CT flavor default Release-Prod)"
+        type: string
+        required: false
+        default: Release-Prod
       firebase_groups:
         description: Comma-separated Firebase App Distribution tester groups
         type: string
@@ -148,7 +158,7 @@ jobs:
           APP_IDENTIFIER: ${{ inputs.app_identifier }}
           IOS_SCHEME: ${{ inputs.ios_scheme }}
           IOS_CODESIGN_IDENTITY: ${{ secrets.IOS_CODESIGN_IDENTITY }}
-          IOS_BUILD_CONFIGURATION: ${{ inputs.firebase_ios_app == 'dev' && 'Debug' || 'Release' }}
+          IOS_BUILD_CONFIGURATION: ${{ inputs.firebase_ios_app == 'dev' && inputs.ios_build_configuration_dev || inputs.ios_build_configuration_dist }}
           # Dev Firebase: Ad Hoc profile + ad-hoc export. Dist: App Store profile + app-store export.
           IOS_EXPORT_METHOD: ${{ inputs.firebase_ios_app == 'dev' && 'development' || 'app-store' }}
         run: bundle exec fastlane staging_build

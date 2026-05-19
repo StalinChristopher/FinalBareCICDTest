@@ -7,9 +7,9 @@ alwaysApply: false
 
 ## Artifact
 
-When `rn-job-ios-simulator-artifact.yml` runs (for example after you wire it into a workflow or add a `workflow_dispatch` caller), it uploads a **Debug** `.app` for the simulator (e.g. `TemplatePipelineReactNative-iphonesimulator-Debug`). The default `rn.yml` orchestrator does **not** invoke that job.
+When `rn-job-ios-simulator-artifact.yml` runs (for example after you wire it into a workflow or add a `workflow_dispatch` caller), it uploads a **Debug-Dev** simulator `.app` (default artifact name e.g. `Dev-iphonesimulator-Debug-Dev`). The default `rn.yml` orchestrator does **not** invoke that job.
 
-1. Download and unzip the artifact; locate `*.app` (e.g. `TemplatePipelineReactNative.app`).
+1. Download and unzip the artifact; locate `*.app` (e.g. `Dev.app` or your app display name from the Dev flavor).
 
 2. Boot a simulator (Xcode **Open Developer Tool → Simulator**) or list devices:
 
@@ -20,7 +20,7 @@ When `rn-job-ios-simulator-artifact.yml` runs (for example after you wire it int
 3. Install and launch (replace app path if needed; bundle id matches Debug / CI `product_bundle_identifier`):
 
    ```bash
-   xcrun simctl install booted /full/path/to/TemplatePipelineReactNative.app
+   xcrun simctl install booted /full/path/to/YourApp.app
    xcrun simctl launch booted com.codeandtheory.edward-jones-poc.dev
    ```
 

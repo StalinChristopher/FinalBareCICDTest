@@ -31,22 +31,27 @@ platform :ios do
       UI.success("Set CFBundleVersion to #{next_build} (latest TestFlight was #{latest.to_i})")
     end
 
+    export_method = ENV["IOS_EXPORT_METHOD"].to_s.strip
+    export_method = "app-store" if export_method.empty?
+
     xcargs = {
       "CODE_SIGN_STYLE" => "Manual",
       "DEVELOPMENT_TEAM" => team_id,
       "PROVISIONING_PROFILE_SPECIFIER" => profile_name
     }
-    identity = ENV["IOS_CODESIGN_IDENTITY"]
-    xcargs["CODE_SIGN_IDENTITY"] = identity if identity && !identity.to_s.empty?
-
-    # app-store = TestFlight / App Store profiles; ad-hoc = Firebase internal testers (distribution profile + devices)
-    export_method = ENV["IOS_EXPORT_METHOD"].to_s.strip
-    export_method = "app-store" if export_method.empty?
+    identity = ENV["IOS_CODESIGN_IDENTITY"].to_s.strip
+    if identity.empty? && %w[app-store ad-hoc].include?(export_method)
+      identity = "Apple Distribution"
+    end
+    if identity && !identity.empty?
+      xcargs["CODE_SIGN_IDENTITY"] = identity
+      xcargs["CODE_SIGN_IDENTITY[sdk=iphoneos*]"] = identity
+    end
 
     bc = ENV["IOS_BUILD_CONFIGURATION"]
     gym_args = {
       workspace: "ios/FinalBareCICDTest.xcworkspace",
-      scheme: ENV.fetch("IOS_SCHEME", "FinalBareCICDTest"),
+      scheme: ENV.fetch("IOS_SCHEME", "Prod"),
       export_method: export_method,
       output_directory: "build",
       output_name: "FinalBareCICDTest.ipa",

@@ -7,7 +7,7 @@ on:
         description: "iOS bundle ID for Fastlane (must match Xcode and provisioning profile)"
         type: string
         required: false
-        default: com.codeandtheory.templatepipelinetest.dist
+        default: com.codeandtheory.templatepipelinetest
       ios_scheme:
         description: "Xcode scheme used by Fastlane gym"
         type: string
@@ -99,6 +99,7 @@ jobs:
           APP_STORE_CONNECT_API_KEY: ${{ secrets.APP_STORE_CONNECT_API_KEY }}
           APP_IDENTIFIER: ${{ inputs.app_identifier }}
           IOS_SCHEME: ${{ inputs.ios_scheme }}
+          IOS_BUILD_CONFIGURATION: Release-Prod
           IOS_CODESIGN_IDENTITY: ${{ secrets.IOS_CODESIGN_IDENTITY }}
         run: bundle exec fastlane staging_build
       - uses: actions/upload-artifact@v4

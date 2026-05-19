@@ -8,14 +8,17 @@ on:
         default: ios/FinalBareCICDTest.xcworkspace
       ios_scheme:
         type: string
-        default: FinalBareCICDTest
-      # Must match Debug configuration / Firebase dev app (simulator artifact is unsigned Debug).
+        default: Dev
+      ios_build_configuration:
+        type: string
+        default: Debug-Dev
+      # Must match Debug-Dev / Firebase dev app (simulator artifact is unsigned Debug).
       product_bundle_identifier:
         type: string
         default: com.codeandtheory.templatepipelinetest.dev
       artifact_name:
         type: string
-        default: FinalBareCICDTest-iphonesimulator-Debug
+        default: Dev-iphonesimulator-Debug-Dev
 
 env:
   # Expo SDK 55 requires Xcode 26+; EAS defaults to 26.2. Same pin for bare + Expo iOS jobs.
@@ -54,17 +57,18 @@ jobs:
         env:
           WS: ${{ inputs.ios_workspace }}
           SC: ${{ inputs.ios_scheme }}
+          BC: ${{ inputs.ios_build_configuration }}
           DD: ${{ github.workspace }}/DerivedDataCI
           PRODUCT_BUNDLE_IDENTIFIER: ${{ inputs.product_bundle_identifier }}
         run: |
           set -euo pipefail
           DEST=$(python3 .github/scripts/ios_first_iphone_sim_udid.py)
-          xcodebuild build -workspace "$WS" -scheme "$SC" -configuration Debug \
+          xcodebuild build -workspace "$WS" -scheme "$SC" -configuration "$BC" \
             -destination "$DEST" -derivedDataPath "$DD" \
             CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO \
             "PRODUCT_BUNDLE_IDENTIFIER=${PRODUCT_BUNDLE_IDENTIFIER}"
       - uses: actions/upload-artifact@v4
         with:
           name: ${{ inputs.artifact_name }}
-          path: DerivedDataCI/Build/Products/Debug-iphonesimulator/${{ inputs.ios_scheme }}.app
+          path: DerivedDataCI/Build/Products/${{ inputs.ios_build_configuration }}-iphonesimulator/${{ inputs.ios_scheme }}.app
           if-no-files-found: error

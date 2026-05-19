@@ -121,7 +121,7 @@ jobs:
       branch: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
       firebase_ios_app: dev
       app_identifier: com.codeandtheory.templatepipelinetest.dev
-      ios_scheme: FinalBareCICDTest
+      ios_scheme: Dev
       dry_run: false
       upload_to_firebase: ${{ github.event_name == 'push' }}
       firebase_groups: internal-qa
