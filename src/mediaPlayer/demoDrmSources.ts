@@ -28,9 +28,11 @@ const WIDEVINE_TEST_LICENSE =
  * NXDOMAIN; bundled drm.cloud JWT expired). Replace these constants with your own
  * endpoints from your DRM vendor console when integrating production content.
  */
-const FAIRPLAY_DEMO_MANIFEST = 'https://na-fps.ezdrm.com/demo/ezdrm/master.m3u8';
+const FAIRPLAY_DEMO_MANIFEST =
+  'https://na-fps.ezdrm.com/demo/ezdrm/master.m3u8';
 
-const FAIRPLAY_DEMO_CERTIFICATE = 'https://fps.ezdrm.com/demo/video/eleisure.cer';
+const FAIRPLAY_DEMO_CERTIFICATE =
+  'https://fps.ezdrm.com/demo/video/eleisure.cer';
 
 const FAIRPLAY_DEMO_LICENSE =
   'https://fps.ezdrm.com/api/licenses/b99ed9e5-c641-49d1-bfa8-43692b686ddb';
