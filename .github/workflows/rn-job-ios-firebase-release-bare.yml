@@ -23,7 +23,7 @@ on:
         description: "iOS bundle ID (must match Xcode, signing profile, and Firebase iOS app)"
         type: string
         required: false
-        default: com.codeandtheory.templatepipelinetest
+        default: com.codeandtheory.templatepipelinetest.dist
       ios_scheme:
         description: "Xcode scheme used by Fastlane gym"
         type: string

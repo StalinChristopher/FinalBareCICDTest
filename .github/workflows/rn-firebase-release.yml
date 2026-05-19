@@ -112,7 +112,7 @@ jobs:
     with:
       branch: ${{ inputs.branch }}
       firebase_ios_app: dist
-      app_identifier: com.codeandtheory.templatepipelinetest
+      app_identifier: com.codeandtheory.templatepipelinetest.dist
       ios_scheme: Prod
       dry_run: ${{ inputs.dry_run }}
       firebase_groups: ${{ inputs.firebase_groups }}
